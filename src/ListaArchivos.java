@@ -2,7 +2,15 @@ import java.io.File;
 import java.util.ArrayList;
 
 public class ListaArchivos {
-
+    /**
+     * Muestra el contenido de un directorio.
+     *
+     * @param path   Ruta del directorio.
+     * @param filter Filtro de extensión de ficheros.
+     *               1: Mostrar primero nombres de subdirectorios y luego ficheros.
+     *               2: Mostrar permisos, tamaño y formato similar a ls -l.
+     *               Otro: Mostrar ficheros que coinciden con el filtro de extensión.
+     */
     public void list(String path, String filter) {
         File dir = new File(path);
         if (!dir.isDirectory()) {
@@ -63,6 +71,12 @@ public class ListaArchivos {
         }
     }
 
+    /**
+     * Devuelve los permisos de un fichero.
+     *
+     * @param file Fichero del que se quieren obtener los permisos.
+     * @return Permisos del fichero.
+     */
     private String getPermissions(File file) {
         StringBuilder perms = new StringBuilder();
 
@@ -78,6 +92,6 @@ public class ListaArchivos {
         ListaArchivos lista = new ListaArchivos();
 
         // Ejemplo de uso
-        lista.list("C:\\Users\\Desi\\source\\repos\\net-projects", "1"); // Cambiar por el path real y filtro deseado
+        lista.list("C:\\Users", "2"); // Cambiar por el path real y filtro deseado
     }
 }
